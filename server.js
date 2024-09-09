@@ -13,14 +13,15 @@ const DB = process.env.DATABASE.replace(
 );
 
 mongoose
-  .connect(DB, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-  })
+  .connect(DB)
   .then(() =>
     console.log("DB connection success")
+  )
+  .catch((err) =>
+    console.error(
+      "DB connection error:",
+      err
+    )
   );
 
 const port = process.env.PORT || 8000;
