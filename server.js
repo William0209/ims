@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 
 // MongoDB Connection
-const DB = process.env.DATABASE.replace("<PASSWORD>", process.env.DATABASE_PASSWORD);
+const DB = process.env.DATABASE.replace("ZmQxcoWgRXHLfAso", process.env.DATABASE_PASSWORD);
 mongoose
   .connect(DB)
   .then(() => console.log("DB connection success"))
