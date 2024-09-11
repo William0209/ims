@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const { graphqlHTTP } = require('express-graphql');
 const { buildSchema } = require('graphql');
 const dotenv = require('dotenv');
-dotenv.config({ path: "./config.env" });
+dotenv.config({ path: './config.env' });
 
 const app = express();
 app.use(express.json());
