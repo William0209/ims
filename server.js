@@ -1,3 +1,4 @@
+// server.js
 const express = require("express");
 const mongoose = require("mongoose");
 
@@ -14,19 +15,18 @@ const DB = process.env.DATABASE.replace(
 
 mongoose
   .connect(DB)
-  .then(() =>
-    console.log("DB connection success")
-  )
+  .then(() => console.log("DB connection success"))
   .catch((err) =>
-    console.error(
-      "DB connection error:",
-      err
-    )
+    console.error("DB connection error:", err)
   );
+
+// Import routes
+const productRoutes = require("./routes/productRoutes");
+
+// Mount the routes
+app.use("/api/products", productRoutes);
 
 const port = process.env.PORT || 8000;
 app.listen(port, () => {
-  console.log(
-    `Server is running on port ${port}`
-  );
+  console.log(`Server is running on port ${port}`);
 });
