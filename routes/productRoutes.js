@@ -9,14 +9,9 @@ const router = express.Router();
 router
   .route("/")
   .get(productController.getAllProducts) // Hämta alla produkter
-  .post(productController.createProduct); // Skapa en ny produkt
-
-// Hantera en specifik produkt via ID (hämta, uppdatera eller ta bort)
-router
-  .route("/:id")
-  .get(productController.getProductById) // Hämta en produkt via ID
-  .put(productController.updateProduct) // Uppdatera en produkt via ID
-  .delete(productController.deleteProduct); // Ta bort en produkt via ID
+  .post(
+    productController.createProduct
+  ); // Skapa en ny produkt
 
 // Extra routes för specifika funktioner
 router.get(
@@ -39,5 +34,14 @@ router.get(
   "/manufacturers",
   productController.getManufacturers // Hämta alla tillverkare
 );
+
+// Hantera en specifik produkt via ID (hämta, uppdatera eller ta bort)
+router
+  .route("/:id")
+  .get(productController.getProductById) // Hämta en produkt via ID
+  .put(productController.updateProduct) // Uppdatera en produkt via ID
+  .delete(
+    productController.deleteProduct
+  ); // Ta bort en produkt via ID
 
 module.exports = router; // Exporterar router för användning i appen
